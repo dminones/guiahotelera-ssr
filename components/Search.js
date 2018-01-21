@@ -1,16 +1,15 @@
 import React from 'react';
-import config from '../config'
 import Autosuggest from 'react-autosuggest';
-import Link from 'next/link'
-
-//import './Components.css'
+import Link from 'next/link';
+import config,{ getClientConfigSite } from '../config'
 
 // Teach Autosuggest how to calculate suggestions for any given input value. 
 const getSuggestions = function(value, callback) {
 	const inputValue = value.trim().toLowerCase();
 	const inputLength = inputValue.length;
-	
-	fetch(config.apiUrl+'/destination?site='+config.site.slug)  
+	const site = getClientConfigSite();
+
+	fetch(config.apiUrl+'/destination?site='+site.slug)  
 	  .then(function(response) {
 	    response.json().then(function(json) {
 	      	let filtered = json.filter(item =>
