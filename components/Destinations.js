@@ -33,6 +33,8 @@ export default class Destinations extends Component {
 	      results : this.props.destinations || [],
 	      page: props.page
 	    }
+
+	    this.getMore = this.getMore.bind(this)
 	 }
 
 	updateDestinations() {
