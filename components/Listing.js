@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { Filtering, ResultListItem } from './index'
-import config from '../config'
-//import '../css/icons.css';
-//import './Components.css';
 import { strings } from '../data'
 import { SideBanners, Categories } from './'
-//import { Categories } from './'
+import config from '../config'
 
 function Sorting() {
   return(
@@ -13,18 +10,16 @@ function Sorting() {
   )
 }
 
-function ResultList({ results, destination, category }) {
+function ResultList({ results, destination, category, site }) {
   const catText = category ? 
                   ((strings[category] && strings[category].plural) ? strings[category].plural :  category) : 
                   'Atracciones'
-
-                  console.log("ResultList",results)
   return(
     
     <div className="row">
    
       <div className="col-lg-12 col-md-12">
-        <h3 className="margin-top-0 margin-bottom-30">{ catText } en { destination ? destination.name : config.site.country } </h3>
+        <h3 className="margin-top-0 margin-bottom-30">{ catText } en { destination ? destination.name : site.country } </h3>
       </div>
 
       <div>
@@ -78,7 +73,7 @@ export default class Listing extends Component {
       url.searchParams.append('_destination', this.props.destination._id)
     }
     if(this.props.site) {
-      url.searchParams.append('site', this.props.site)
+      url.searchParams.append('site', this.props.site.slug)
     }
 
     fetch(url)  
@@ -100,7 +95,7 @@ export default class Listing extends Component {
     }
 
     if(this.props.site) {
-      url.searchParams.append('site', this.props.site)
+      url.searchParams.append('site', this.props.site.slug)
     }
 
     fetch(url).then(function(response) {
@@ -120,7 +115,6 @@ export default class Listing extends Component {
   }
 
   componentDidMount() {
-    //this.updateHotels()
     this.getBanners()
   }
 
@@ -133,7 +127,8 @@ export default class Listing extends Component {
             <Sorting />
             <ResultList results={this.state.results} 
                         destination={this.props.destination}
-                        category={this.props.category } />
+                        category={this.props.category }
+                        site={this.props.site} />
           </div>
          
           <div className="col-lg-3 col-md-4">

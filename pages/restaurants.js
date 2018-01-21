@@ -11,7 +11,7 @@ export default class extends Component {
 		const site = configSite(req);
 		const results = await getItems({
 			category: 'Restaurant',
-			site: site
+			site: site.slug
 		});
 
 		return {

@@ -7,12 +7,12 @@ import config, {configSite} from '../config'
 import { getRandomImage, getDestinations, getItems } from '../data';
 import Head from 'next/head'
 
-function SearchContainer() {
+function SearchContainer({site}) {
   return (
       <div className="container">
         <div className="row">
           <div className="col-md-8 col-md-push-2">
-            <h1 style={{  color:'white' }} >Encontra Hoteles en { config.site.country } </h1>
+            <h1 style={{  color:'white' }} >Encontra Hoteles en { site.country } </h1>
             <h4 style={{  color:'white' }} >Expolora los mejores destinos, hoteles y más</h4>
             <Search />
           </div>
@@ -40,13 +40,7 @@ export default class extends Component {
   }
 
   render() {
-    console.log("config.site ",this.props.site)
-
-    if('undefined' !== typeof window) {
-  console.log("window.env", window.env) 
-  console.log("window.env", window.window.env) 
-}
-
+   
     return (
       <Layout site={this.props.site}>
         <Head>
@@ -54,12 +48,12 @@ export default class extends Component {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <Header src={ getRandomImage(this.props.site) } headerSize="Big" headerFixed={false} >
-          <SearchContainer />
+          <SearchContainer  site={this.props.site}/>
         </Header>
         <Destinations page={6} 
                       site={this.props.site.slug} 
                       destinations={this.props.destinations} />
-        <Items site={config.site.slug} results={this.props.items}/>
+        <Items site={this.props.site.slug} results={this.props.items}/>
         <Banners page={6} site={this.props.site.slug} />
       </Layout>
     )

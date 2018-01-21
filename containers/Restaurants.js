@@ -9,7 +9,7 @@ export default class Restaurants extends Component {
 			<div>
 			  <Header src={ '/static/images/restaurants.jpg' } title={ 'Restaurantes' }  />
 			  <Listing 	results={this.props.results} 
-			  			category={'Restaurant'} 
+			  			category={this.props.category} 
 			  			showBanners={false} 
 			  			site={this.props.site} />
 			</div>
