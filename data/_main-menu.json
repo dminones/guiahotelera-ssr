@@ -1,0 +1,22 @@
+{
+  "left": [],
+  /*
+    [{
+      "href":"/hostel",
+      "html":"Hostel"
+    }, 
+    {
+      "href":"/lineas-aereas",
+      "html":"Lineas Aereas"
+    },
+    {
+      "href":"/bodegas",
+      "html":"Bodegas"
+    },
+    {
+      "href":"/promociones",
+      "html":"Promociones"
+    }],
+  */
+  "right": []
+}	

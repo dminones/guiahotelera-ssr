@@ -1,0 +1,59 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.App-intro {
+  font-size: large;
+  text-align: center;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/**
+** Animations
+**/
+
+.SlideIn-appear {
+  /*transform: translateX(30px);*/
+  opacity: 0;
+}
+.SlideIn-appear.SlideIn-appear-active {
+  opacity: 1;
+  /*transform: translateX(0);*/
+  transition: all 0.3s linear;
+}
+.SlideIn-enter {
+    opacity: 0;
+    /*transform: translateX(30px);*/
+}
+.SlideIn-enter.SlideIn-enter-active {
+    opacity: 1;
+    /*transform: translateX(0);
+    transition: all 0.2s linear 0.4s;*/
+}
+.SlideIn-leave {
+    opacity: 1.0;
+    /*transform: translateX(0);*/
+}
+.SlideIn-leave.SlideIn-leave-active {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    /*
+    transform: translateX(-30px);*/
+    transition: all 0.2s linear;
+}

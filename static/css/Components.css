@@ -1,0 +1,104 @@
+.Icon-link:hover {
+  	color:#00a948;
+}
+
+.icon-booking {
+	background-image: url('../images/apple-touch-icon.png');
+	background-size: contain;
+	width: 16px;
+	height: 16px;
+}
+
+.Filtering-list-item {
+	margin-right: 10px;
+	font-size: 15px;
+	list-style: none
+}
+
+.Filtering-list-item a:hover{
+	color:#00a948;
+}
+
+
+.row.with-forms select {
+	text-indent: 15px!important;
+}
+
+.listing-item-container.list-layout.item-simple:hover {
+	transform: none;
+	-webkit-transform: none;
+}
+
+.listing-item-content-simple h3 {
+    font-size: 20px;
+    bottom: -1px;
+    position: relative;
+    font-weight: 500;
+    margin: 0;
+    line-height: 31px;
+}
+
+.listing-item-inner-simple {
+	padding: 10px 35px 10px 35px;
+}
+
+
+.listing-item-container.list-layout .listing-small img {
+	object-fit: contain;
+}
+
+.listing-item-container.list-layout .listing-item-image-small{
+    min-height: initial!important;
+    flex: 1 1!important;
+}
+
+@media (max-width: 991px) {		
+	.listing-item-image {
+		height: 250px!important;
+	}
+
+	.listing-item-image-small {
+		height: 120px!important;	
+	}
+}
+
+@media (min-width: 991px) {		
+	.listing-item-container.list-layout .listing-small {
+		height: 120px!important;
+	}
+}
+
+
+.listing-item-container.list-layout .listing-item-inner {
+	padding-right: 35px!important;
+}
+
+/**
+*
+* Autosugest
+*
+**/
+
+.react-autosuggest__suggestions-list {
+	background-color:white;
+	list-style: none;
+	text-align: left;
+	padding-left: 0px;
+	margin-top: 10px;
+
+	
+    border-left:1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: none;
+    background: #fff;
+}
+
+.react-autosuggest__suggestion {
+	padding: 5px 10px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+	color: #00a948;
+	cursor: pointer;
+}

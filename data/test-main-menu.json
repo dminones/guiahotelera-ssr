@@ -1,0 +1,41 @@
+{
+  "left": [
+    {
+      "href":"index.html",
+      "html":"Home 1",
+      "children": [
+        {
+          "href":"index.html",
+          "html":"Home 1",
+          "children": [
+            {
+              "href":"index.html",
+              "html":"Home 1"
+            }, 
+            {
+              "href":"index-2.html",
+              "html":"Home 2"
+            }
+          ]
+        }, 
+        {
+          "href":"index-2.html",
+          "html":"Home 2"
+        }
+      ]
+    }, 
+    {
+      "href":"/hostel",
+      "html":"Hostel"
+    }, 
+    {
+      "href":"/lineas-aereas",
+      "html":"Lineas Aereas"
+    },
+    {
+      "href":"/bodegas",
+      "html":"Bodegas"
+    }
+  ],
+  "right": []
+}	
