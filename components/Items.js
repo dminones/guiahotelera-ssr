@@ -8,8 +8,7 @@ class Item extends Component {
 		return(
 			<div className="col-lg-3 col-md-6">
 				<Link href={ '/single-item?slug='+slugify(this.props.item.name) }  
-		              as={ '/hotel/'+slugify(this.props.item.name) }
-		              prefetch >
+		              as={ '/hotel/'+slugify(this.props.item.name) } >
 					<a className="listing-item-container compact">
 						<div className="listing-item">
 							<img src={this.props.item.thumbnail} 

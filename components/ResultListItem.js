@@ -106,8 +106,7 @@ function ResultListItemBig({item}) {
     <div className="col-lg-12 col-md-12">
       <div className="listing-item-container list-layout">
         <Link href={ '/single-item?slug='+slugify(item.name) }  
-              as={ '/hotel/'+slugify(item.name) }
-              prefetch >
+              as={ '/hotel/'+slugify(item.name) } >
           <a className="listing-item">
             <ResultListImage item={item} />
             <div className="listing-item-content">
