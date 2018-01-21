@@ -19,7 +19,7 @@ function Menu ({ menu }) {
 
 function MenuItem ({ menuItem }) {
   return (
-    <li><Link href={ menuItem.href } ><a className="current">{menuItem.html}</a></Link>
+    <li><Link href={ menuItem.href } ><a >{menuItem.html}</a></Link>
     {(() => {
       if(menuItem.children instanceof Array) {
         return (
