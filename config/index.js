@@ -11,8 +11,11 @@ export default { 
 }
 
 export function configSite(req) {
-	console.log("headerss",req.headers)
-	console.log("headers react app",req.headers.react_app_site)
+	if(req) {
+		console.log("headerss",req.headers)
+		console.log("headers react app",req.headers.react_app_site)		
+	}
+
     const site  =  	('undefined' !== typeof window) ? 
                     (('undefined' !== typeof window.env) ? window.env.REACT_APP_SITE : null) :
                   	(('undefined' !== typeof req) ? req.headers.react_app_site : null)
