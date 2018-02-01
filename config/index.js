@@ -10,21 +10,10 @@ export default { 
 	...config.config
 }
 
-function getSiteForHost(host, sites) {
-	var returnSite = null;
-	Object.keys(sites).forEach((site) => {
-		if(host.indexOf(site) !== -1){
-			returnSite = site;
-		}
-	})
-
-	return returnSite;
-}
-
 export function configSite(req) {	
-	const site  =  	('undefined' !== typeof window) ? 
+    const site  =  	('undefined' !== typeof window) ? 
                     (('undefined' !== typeof window.env) ? window.env.REACT_APP_SITE : null) :
-                  	(('undefined' !== typeof req) ? getSiteForHost(req.headers.host, sites) : null)
+                  	(('undefined' !== typeof req) ? req.headers.react_app_site : null)
 
     return sites[site || 'bolivia'];
 }
