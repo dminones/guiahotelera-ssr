@@ -10,12 +10,23 @@ export default { 
 	...config.config
 }
 
-export function configSite(req) {	
-    const site  =  	('undefined' !== typeof window) ? 
-                    (('undefined' !== typeof window.env) ? window.env.REACT_APP_SITE : null) :
-                  	(('undefined' !== typeof req) ? req.headers.react_app_site : null)
+function getSiteForHost(host, sites) {
+	var returnSite = null;
+	Object.keys(sites).forEach((site) => {
+		if(host.indexOf(site) !== -1){
+			returnSite = site;
+		}
+	})
 
-    return sites[site || 'argentina'];
+	return returnSite;
+}
+
+export function configSite(req) {	
+	const site  =  	('undefined' !== typeof window) ? 
+                    (('undefined' !== typeof window.env) ? window.env.REACT_APP_SITE : null) :
+                  	(('undefined' !== typeof req) ? getSiteForHost(req.headers.host, sites) : null)
+
+    return sites[site || 'bolivia'];
 }
 
 export function getClientConfigSite() {	
@@ -23,5 +34,5 @@ export function getClientConfigSite() {
                     (('undefined' !== typeof window.env) ? window.env.REACT_APP_SITE : null) :
                   	null
 
-    return sites[site || 'argentina'];
+    return sites[site || 'bolivia'];
 }
