@@ -14,6 +14,7 @@ export function configSite(req) {
 	if(req) {
 		console.log("headerss",req.headers)
 		console.log("headers react app",req.headers.react_app_site)		
+    console.log("headers react app",req.hostname)   
 	}
 
     const site  =  	('undefined' !== typeof window) ? 
