@@ -43,8 +43,8 @@
     "css-loader": "^0.28.5",
     "env-cmd": "^7.0.0",
     "path": "^0.12.7"
-  }, 
-  "now" : {
+  },
+  "now": {
     "alias": "guiahotelera-ssr"
   }
 }
