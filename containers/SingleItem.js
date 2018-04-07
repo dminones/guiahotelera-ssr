@@ -93,6 +93,18 @@ function TwitterDetail({twitter}) {
 }
 
 
+function InstagramDetail({instagram}) {
+  if(instagram == null){ return null }
+
+  return( <li>
+            <a href={instagram} target="_blank" style={{color:'rgb(136, 136, 136)'}}> 
+              <i className="fa fa-instagram"></i>
+              Instagram
+            </a>
+          </li>)
+}
+
+
 class Content extends Component {
 
   componentDidMount() {
@@ -152,6 +164,7 @@ class Content extends Component {
           <ul className="listing-details-sidebar social-profiles col-md-4">
             <FacebookDetail facebook={item.facebook} />
             <TwitterDetail twitter={item.twitter} />
+            <InstagramDetail instagram={item.instagram} />
             <BookingDetail booking={item.booking} />
           </ul>
         </div>
