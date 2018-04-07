@@ -35,6 +35,8 @@ app.prepare()
     if (err) throw err
     console.log('> Ready on port ',port)
   })
+
+  server.use(express.static(__dirname + '/static'));
 })
 .catch((ex) => {
   console.error(ex.stack)

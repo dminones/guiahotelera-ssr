@@ -6,8 +6,8 @@ import {Header, Listing } from '../components'
 import queryString from 'query-string'
 import styled, { keyframes } from 'styled-components';
 import NoMatch from '../containers/NoMatch'
-import { getDestination, getItems } from '../data';
-
+import { getDestination, getItems, strings } from '../data';
+import Head from 'next/head'
 
 export default class extends Component {
 
@@ -33,8 +33,10 @@ export default class extends Component {
 	}
 
 	render() {
-		console.log("site ", this.props.site)
-		const destination = this.props.destination
+		const destination = this.props.destination;
+		const catText = this.props.category ? 
+                  ((strings[this.props.category] && strings[this.props.category].plural) ? strings[this.props.category].plural :  this.props.category) : 
+                  'Atracciones';
 		if(!destination) {
 			return (
 				<Layout site={this.props.site}>
@@ -44,10 +46,13 @@ export default class extends Component {
 		}
 		return(
 			<Layout site={this.props.site}>
-			  <Header src={ destination.image } title={ destination.name } headerFixed={true} />
-			  <Listing 	destination={destination} 
-			  			category={this.props.category} 
-			  			results={this.props.results} />
+				<Head>
+					<title>{catText} en {destination.name} - {this.props.site.name}</title>
+				</Head>
+			  	<Header src={ destination.image } title={ destination.name } headerFixed={true} />
+			  	<Listing 	destination={destination} 
+							category={this.props.category} 
+							results={this.props.results} />
 			</Layout>
 		)
 	}
