@@ -31,6 +31,9 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" type="text/css" href={this.props.site.colorStyle} />
 
           <link rel="icon" href={this.props.site.favicon} type="image/x-icon" />
+        
+          <title>Guia Hotelera Bolivia - Hoteles en Santa Cruz de la Sierra - Hoteles en Cochabamba - La Paz</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <body className="custom_class">
           {this.props.customValue}
