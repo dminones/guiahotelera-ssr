@@ -44,7 +44,7 @@ export default class extends Component {
     return (
       <Layout site={this.props.site}>
         <Head>
-          <title>My page title</title>
+          <title>Guia Hotelera Bolivia - Hoteles en Santa Cruz de la Sierra - Hoteles en Cochabamba - La Paz</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <Header src={ getRandomImage(this.props.site) } headerSize="Big" headerFixed={false} >
