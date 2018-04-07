@@ -9,5 +9,4 @@ export default class extends AbstractPage {
 			name: 'Alquiler de Autos'
 		}
 	);
-
 }

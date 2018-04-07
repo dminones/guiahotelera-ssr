@@ -1,5 +1,6 @@
 const argentina = {
 	name: "Guia Hotelera Argentina",
+	summary: "Hoteles en Mar del Plata - Hoteles en Buenos Aires - Trenque Lauquen",
 	country: "Argentina",
 	logo: '/static/images/logo-argentina.jpg',
 	slug: "argentina",

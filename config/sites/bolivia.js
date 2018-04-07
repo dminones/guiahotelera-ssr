@@ -1,5 +1,6 @@
 const bolivia = {
 	name: "Guia Hotelera Bolivia",
+	summary: "Hoteles en Santa Cruz de la Sierra - Hoteles en Cochabamba - La Paz",
 	country: "Bolivia",
 	logo: '/static/images/logo-bolivia.jpg',
 	slug: "bolivia",
