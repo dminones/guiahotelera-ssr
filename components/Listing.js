@@ -10,6 +10,22 @@ function Sorting() {
   )
 }
 
+
+function ResultListWithData({ results, emptyMsg }) {
+  if(results.length <= 0 ){
+    return <div style={{padding:'30px 15px', textAlign:'center', margin:'50px'}}><p >{emptyMsg}</p></div>
+  }
+  return (
+    <div>
+      {
+        results.map((item) => (
+          <ResultListItem key={item._id} item={item} />
+        ))
+      }
+    </div>
+  )
+}
+
 function ResultList({ results, destination, category, site }) {
   const catText = category ? 
                   ((strings[category] && strings[category].plural) ? strings[category].plural :  category) : 
@@ -21,12 +37,7 @@ function ResultList({ results, destination, category, site }) {
       <div className="col-lg-12 col-md-12">
         <h3 className="margin-top-0 margin-bottom-30">{ catText } en { destination ? destination.name : site.country } </h3>
       </div>
-
-      <div>
-      {results.map((item) => (
-        <ResultListItem key={item._id} item={item} />
-      )) }
-      </div>
+      <ResultListWithData results={results} emptyMsg="No hay resultados para esta búsqueda" />
       
     </div>
   )

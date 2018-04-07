@@ -4,10 +4,9 @@ export default class extends AbstractPage {
 
 	static pageConfig = () => (
 		{
-			category: 'Restaurant',
-			img: '/static/images/restaurants.jpg',
-			name: 'Restaurantes'
+			category: 'Promocion',
+			img: '/static/images/promociones.jpg',
+			name: 'Promociones'
 		}
 	);
-
 }

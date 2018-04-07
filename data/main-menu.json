@@ -1,7 +1,17 @@
 {
-  "left": [{
+  "left": [
+    {
       "href":"/restaurants",
       "html":"Restaurantes"
-    }],
+    }, 
+    {
+      "href":"/rent-a-car",
+      "html":"Alquiler de Autos"
+    }, 
+    {
+      "href":"/promociones",
+      "html":"Promociones"
+    }
+  ],
   "right": []
 }	

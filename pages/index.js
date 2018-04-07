@@ -40,7 +40,7 @@ export default class extends Component {
   }
 
   render() {
-   
+    console.log("SITE   ",this.props.site);
     return (
       <Layout site={this.props.site}>
         <Head>
