@@ -12,6 +12,7 @@ function Sorting() {
 
 
 function ResultListWithData({ results, emptyMsg }) {
+  console.log("RESULTS",results)
   if(results.length <= 0 ){
     return <div style={{padding:'30px 15px', textAlign:'center', margin:'50px'}}><p >{emptyMsg}</p></div>
   }

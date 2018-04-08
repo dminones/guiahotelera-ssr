@@ -21,7 +21,9 @@ export default function ParentDestination(props) {
                       site={props.site.slug} 
                       destinations={props.children}
                       title={'Destinos en '+destination.name} />
-            <Items site={props.site.slug} />
+            <Items  site={props.site.slug}  
+                    publicationType={['PremiumDestino', 'Premium']}
+                    summary={ 'Descubri los mejores hoteles en ' + destination.name } />
         </div>
     )
 }

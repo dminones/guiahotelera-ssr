@@ -43,7 +43,7 @@ export default class Items extends Component {
 	}
 
 	updateItems() {
-		getItems( { publicationType:"Premium", site:this.props.site}).then((results)=>{
+		getItems( { publicationType:this.props.publicationType.join(',') || "Premium", site:this.props.site}).then((results)=>{
 			this.setState({ results });
 		})
 	}
@@ -61,8 +61,8 @@ export default class Items extends Component {
 
 						<div className="col-md-12">
 							<h3 className="headline centered margin-bottom-45">
-								Hoteles más visitados
-								<span>Descubrí los mejores hoteles en tus destinos favoritos</span>
+								{ this.props.title === undefined ? 'Hoteles más visitados' : this.props.title}
+								<span>{ this.props.summary === undefined ? 'Descubrí los mejores hoteles en tus destinos favoritos' : this.props.summary}</span>
 							</h3>
 						</div>
 					</div>
