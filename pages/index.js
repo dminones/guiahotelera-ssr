@@ -25,17 +25,20 @@ export default class extends Component {
 
   static async getInitialProps({ req, query }) {
     const site = configSite(req);
-    const destinations = await getDestinations({
-                            site: site.slug
-                          });
-    const items = await getItems( { 
-                          publicationType:"Premium", 
-                          site:site.slug
-                        });
+
+    const [popularDestinations, parentDestinations, items] = await Promise.all(
+      [
+        getDestinations({ site: site.slug, onlyOrdered:1}),
+        site.showRegions ? getDestinations({ site: site.slug, _parent:0}) : null,
+        getItems( { publicationType:"Premium", site:site.slug})
+      ]
+    );
+
     return {
-      destinations,
+      popularDestinations,
+      parentDestinations,
       items,
-      site: site
+      site
     }
   }
 
@@ -50,9 +53,15 @@ export default class extends Component {
           <SearchContainer  site={this.props.site}/>
         </Header>
         <Destinations page={6} 
-                      site={this.props.site.slug} 
-                      destinations={this.props.destinations} />
-        <Items site={this.props.site.slug} results={this.props.items}/>
+                      destinations={this.props.parentDestinations}
+                      title={'Regiones en '+this.props.site.country}
+                      summary={''}
+                      moreText="Más Regiones"  />
+                      
+        <Destinations page={6} 
+                      destinations={this.props.popularDestinations} 
+                      style={{backgroundColor:"#f8f8f8"}} />
+        <Items site={this.props.site.slug} results={this.props.items} style={{backgroundColor:"#ffffff"}}/>
         <Banners page={6} site={this.props.site.slug} />
       </Layout>
     )

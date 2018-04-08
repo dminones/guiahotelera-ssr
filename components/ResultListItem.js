@@ -169,6 +169,8 @@ export default function ResultListItem({ item }) {
   switch(item.publicationType) {
     case 'Premium':
       return (<ResultListItemBig item={item} />)
+    case 'PremiumDestino':
+      return (<ResultListItemBig item={item} />)
     case 'Basica':
       return (<ResultListItemBig item={item} />)
     case 'Figuracion':

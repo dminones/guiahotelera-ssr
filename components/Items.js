@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import config from '../config/'
 import Link from 'next/link'
 import slugify from '../utils/Slugify'
+import { getItems } from '../data';
 
 class Item extends Component {
 	render() {
@@ -32,32 +33,28 @@ export default class Items extends Component {
 	constructor(props) {
 		super(props)
 	    this.state = {
-	      results : this.props.results
-	    }
+	      results : this.props.results || []
+		}
+
+		this.updateItems = this.updateItems.bind(this);
+		if(!this.props.results) {
+			this.updateItems();
+		}
 	}
 
 	updateItems() {
-		let self = this
-		var url = new URL(config.apiUrl+'/item')
-		var params = { publicationType:"Premium", site:this.props.site}
-		Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-
-		fetch(url)
-		  .then(function(response) {
-		    response.json().then(function(json) {
-		      self.setState({
-		        results : json
-		      })
-		    })
+		getItems( { publicationType:"Premium", site:this.props.site}).then((results)=>{
+			this.setState({ results });
 		})
 	}
 
 	render() {
-			console.log(this.state.results)
-
-		 return (
-			<section 	className="fullwidth margin-top-65 padding-top-75 padding-bottom-70" 
-						style={{backgroundColor:"#f8f8f8"}}>
+		if(this.state.results.length <= 0)
+			return null;
+		
+		return (
+			<section 	className="fullwidth padding-top-75 padding-bottom-70" 
+						style={this.props.style || {backgroundColor:"#f8f8f8"}}>
 
 				<div className="container">
 					<div className="row">

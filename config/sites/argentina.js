@@ -8,7 +8,8 @@ const argentina = {
 	facebook: "https://www.facebook.com/GuiaHoteleraArgentina/",
 	trademark: "© 2008 guiahoteleraargentina.com All rights reserved",
 	favicon: "/static/images/argentina.ico",
-	colorStyle: "/static/css/colors/blue.css"
+	colorStyle: "/static/css/colors/blue.css",
+	showRegions: true
 }
 
 export default argentina;

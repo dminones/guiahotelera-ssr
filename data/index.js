@@ -46,13 +46,8 @@ export async function getDestinations(filter = {}) {
 }
 
 export async function getDestination(slug, filter = {}) {
-	console.log("getDestinations slug",slug)
-	console.log("getDestinations filter",filter)
-	const destinations = await getDestinations(filter)
-    var found = destinations.filter(function(item) { 
-			    	return item.slug === slug;
-			  	});
-    return (found.length > 0) ? found[0] : null;
+	const destinations = await getDestinations({ ...filter, slug})
+    return (destinations.length > 0) ? destinations[0] : null;
 }
 
 const strings  = require('./strings.json')
