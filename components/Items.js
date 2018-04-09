@@ -43,7 +43,17 @@ export default class Items extends Component {
 	}
 
 	updateItems() {
-		getItems( { publicationType:this.props.publicationType.join(',') || "Premium", site:this.props.site}).then((results)=>{
+		var params =  { 
+			publicationType:this.props.publicationType.join(',') || "Premium", 
+			site:this.props.site
+		}
+
+		console.log(this.props.destination);
+		if(this.props.destination) {
+			params._destination = this.props.destination._id;
+		}
+
+		getItems(params).then((results)=>{
 			this.setState({ results });
 		})
 	}
