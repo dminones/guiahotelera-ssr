@@ -63,7 +63,7 @@ export default class Header extends Component {
     this.state= {
       lightboxIsOpen: false,
       currentImage: 0,
-      shouldShowGallery: function(){return (self.props.gallery != null)}
+      shouldShowGallery: function(){return (self.props.gallery != null && self.props.gallery.length > 0)}
     }
 
     this.openLightbox = this.openLightbox.bind(this);
