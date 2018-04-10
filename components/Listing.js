@@ -61,7 +61,6 @@ export default class Listing extends Component {
       results : this.props.results,
       banners: [],
       filter: filter,
-      showBanners: (props.showBanners === false) ? false : true
     }
 
     this.onChangeFilter = this.onChangeFilter.bind(this)
@@ -77,20 +76,29 @@ export default class Listing extends Component {
     this.updateHotels(filter)
   }
   
-  getBanners() {
+  componentWillReceiveProps(nextProps) {
+    this.state = {
+      results : nextProps.results
+    }
+    this.getBanners(nextProps)
+  }
+
+  getBanners({destination, site}) {
+    console.log("update bnners");
     let self = this
 
     var url = new URL(config.apiUrl+'/banner')
-    if(this.props.destination) {
-      url.searchParams.append('_destination', this.props.destination._id)
+    if(destination) {
+      url.searchParams.append('_destination', destination._id)
     }
-    if(this.props.site) {
-      url.searchParams.append('site', this.props.site.slug)
+    if(site) {
+      url.searchParams.append('site', site.slug)
     }
 
     fetch(url)  
       .then(function(response) {
         response.json().then(function(json) {
+            console.log("updated bnners", json);
             self.setState({
               banners: json
             })
@@ -126,11 +134,13 @@ export default class Listing extends Component {
     .catch(function(error) { console.log(error); });
   }
 
+  
   componentDidMount() {
-    this.getBanners()
+    this.getBanners(this.props)
   }
 
   render() {
+    console.log("RENDER ---->", this.state.showBanners);
     return(
       <div className="container margin-top-30" >
         <div className="row">
@@ -146,7 +156,7 @@ export default class Listing extends Component {
           <div className="col-lg-3 col-md-4">
             <Filtering filter={this.state.filter} onChange={ this.onChangeFilter }/>
             <Categories current={this.props.category} destination={this.props.destination} />
-            <SideBanners banners={this.state.banners} showBanners={this.state.showBanners} />
+            { this.props.showBanners && <SideBanners banners={this.state.banners} /> }
           </div>
         
         </div>

@@ -5,6 +5,7 @@ import { getDestination, getItems, strings } from '../data';
 import Head from 'next/head'
 
 export default function FinalDestination(props) {
+
     const destination = props.destination;
     const catText = props.category ? 
                 ((strings[props.category] && strings[props.category].plural) ? strings[props.category].plural :  props.category) : 
@@ -17,7 +18,9 @@ export default function FinalDestination(props) {
             <Header src={ destination.image } title={ destination.name } headerFixed={true} />
             <Listing 	destination={destination} 
                         category={props.category} 
-                        results={props.results} />
+                        results={props.results}
+                        showBanners={true}
+                        />
         </div>
     )
 }

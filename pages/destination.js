@@ -15,6 +15,7 @@ export default class extends Component {
 		const site = configSite(req);
 		const destination = await getDestination(query.slug, {site:site.slug})
 		const category = query.category ? query.category : 'Alojamiento';
+
 		let results, children;
 
 		if (destination) {

@@ -3,6 +3,7 @@ import config from '../config/'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { strings } from '../data'
+import theme from 'styled-theming';
 
 const SidebarTitle = styled.h3`
 	color: #222;
@@ -17,6 +18,11 @@ const SidebarSection = styled.div`
 	margin-bottom: 30px;
 `
 
+const linkColor = theme('color', {
+  green: '#00a948',
+  blue: '#004dda',
+});
+
 const LinkList = styled.ul`
 	font-size: 18px;
 	list-style-type: none;
@@ -24,7 +30,7 @@ const LinkList = styled.ul`
 
 	li {
 		&: hover a{
-			color:#00a948;
+			color:${linkColor};
 		}
 	}
 `
@@ -37,10 +43,6 @@ export default class Categories extends Component {
 			categories: [],
 		}
 		this.updateCategories = this.updateCategories.bind(this)
-	}
-
-	componentDidMount() {
-		this.updateCategories()
 	}
 
 	updateCategories() {
@@ -66,6 +68,14 @@ export default class Categories extends Component {
 	    .catch(console.log);
 	}
 
+	componentWillReceiveProps(nextProps) {
+    this.updateCategories();
+  }
+
+	componentDidMount() {
+    this.updateCategories();
+  }
+
 	render () {
 		if(this.state.categories.length <= 0 || !this.props.destination) {
 			return null
@@ -78,7 +88,7 @@ export default class Categories extends Component {
 				{
 					this.state.categories.map((cat)=> (
 						<li>
-							<Link key={cat} to={ `/d/${this.props.destination.slug}?category=${cat}` } >
+							<Link as={`/d/${this.props.destination.slug}/${cat}`} href={`/destination?slug=${this.props.destination.slug}&category=${cat}`}>
 								{strings[cat] && strings[cat].plural ? strings[cat].plural : cat}
 							</Link>
 						</li>

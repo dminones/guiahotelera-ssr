@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function SideBanners ({banners, showBanners}) {
-  if(!showBanners || banners.length <= 0) {
+export default function SideBanners ({banners}) {
+  if(!(banners && banners.length > 0)) {
     return null
   }
-  console.log(banners)
+
   return (
     <div>
     {

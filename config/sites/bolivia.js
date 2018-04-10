@@ -8,7 +8,8 @@ const bolivia = {
 	facebook: "https://www.facebook.com/GuiaHoteleraBolivia/",
 	trademark: "© 2008 guiahotelerabolivia.com All rights reserved",
 	favicon: "/static/images/bolivia.ico",
-	colorStyle: "/static/css/colors/green.css"
+	colorStyle: "/static/css/colors/green.css",
+	color:"green",
 
 }
 

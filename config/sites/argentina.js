@@ -9,6 +9,7 @@ const argentina = {
 	trademark: "© 2008 guiahoteleraargentina.com All rights reserved",
 	favicon: "/static/images/argentina.ico",
 	colorStyle: "/static/css/colors/blue.css",
+	color:"blue",
 	showRegions: true
 }
 
