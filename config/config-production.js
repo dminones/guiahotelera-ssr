@@ -1,7 +1,7 @@
 import sites from './sites';
 
 const config = {
-	apiUrl : "https://api-guiahotelera.now.sh",
+	apiUrl : "http://api.guiahoteleraargentina.com/",
 }
 
 export { config }
