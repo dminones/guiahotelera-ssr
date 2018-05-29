@@ -204,10 +204,10 @@ class Booking extends Component {
 
 export default class SingleItem extends Component {
 
-  Sidebar({item}) {
+  Sidebar({item, site}) {
     return(
       <div>
-        <Book item={item} />
+        <Book item={item} site={site.slug} />
       </div>
     )
   }
@@ -225,7 +225,7 @@ export default class SingleItem extends Component {
                 <Content item={this.props.item} content={content} />              
             </div>
             <div ref={(section) => { content.Book = section; }} className="col-lg-4 col-md-4 margin-top-75 sticky">
-                { (this.props.item !== null) ? (<this.Sidebar  item={this.props.item} />) : null }
+                { (this.props.item !== null) ? (<this.Sidebar  item={this.props.item} site={this.props.site} />) : null }
             </div>
           </div>
         </div>

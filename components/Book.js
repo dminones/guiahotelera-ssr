@@ -82,7 +82,7 @@ export default class Book extends Component {
     this.setState({
       sending : true
     },function(){
-      fetch(config.apiUrl+'/book', {
+      fetch(config.apiUrl+'/'+this.props.site+'/book', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

@@ -11,16 +11,16 @@ export function getRandomImage(site) {
 }
 
 export async function getItems(filter = {}) {
+	console.log("GET ITEMS");
 	const esc = encodeURIComponent;
 	const query = Object.keys(filter)
     					.map(k => esc(k) + '=' + esc(filter[k]))
     					.join('&');
 	
+	console.log("config",config);
 	const url = config.apiUrl+'/item?'+query
-
-    const res = await fetch(url);
-    const items = await res.json();
-    return items;
+	console.log("QUERY",url);
+	return await fetch(url).then(res => res.json());
 }
 
 

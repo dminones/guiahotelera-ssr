@@ -24,7 +24,7 @@ export default class extends Component {
 				<Head>
 					<title>{ this.props.item.name } - {this.props.site.name}</title>
 				</Head>
-				<SingleItem item={this.props.item} />
+				<SingleItem item={this.props.item} site={this.props.site} />
 		  	</Layout>
 		)
 	}
