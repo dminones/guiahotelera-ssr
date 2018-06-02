@@ -11,15 +11,11 @@ export function getRandomImage(site) {
 }
 
 export async function getItems(filter = {}) {
-	console.log("GET ITEMS");
 	const esc = encodeURIComponent;
 	const query = Object.keys(filter)
     					.map(k => esc(k) + '=' + esc(filter[k]))
     					.join('&');
-	
-	console.log("config",config);
 	const url = config.apiUrl+'/item?'+query
-	console.log("QUERY",url);
 	return await fetch(url).then(res => res.json());
 }
 
@@ -43,6 +39,11 @@ export async function getDestinations(filter = {}) {
 	const res = await fetch(url);
     const destinations = await res.json();
     return destinations;
+}
+
+export async function getHomeDestinations(site) {
+	const res = await fetch(`${config.apiUrl}/${site}/destination/home`);
+	return await res.json();
 }
 
 export async function getDestination(slug, filter = {}) {
