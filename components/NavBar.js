@@ -4,6 +4,25 @@ import styled from 'styled-components'
 
 import { getMainMenu } from '../data/'
 
+// This is the custom wrapper component you would build and use just like `next/link`:
+
+class MyLink extends React.Component {
+  render () {
+    const { onCustomClick, ...props } = this.props
+    return <a {...props} onClick={this.handleClick} />
+  }
+
+  handleClick = event => {
+    if (this.props.onClick) {
+      this.props.onClick(event)
+    }
+
+    if (this.props.onCustomClick) {
+      this.props.onCustomClick(event)
+    }
+  }
+}
+
 function Menu({ menu }) {
   if (menu instanceof Array) {
     return (
@@ -18,9 +37,9 @@ function Menu({ menu }) {
   }
 }
 
-function MenuItem({ menuItem }) {
+function MenuItem({ menuItem, onClick }) {
   return (
-    <li><Link prefetch href={menuItem.href} ><a >{menuItem.html}</a></Link>
+    <li><Link prefetch href={menuItem.href} ><MyLink onCustomClick={onClick}>{menuItem.html}</MyLink></Link>
       {(() => {
         if (menuItem.children instanceof Array) {
           return (
@@ -62,7 +81,7 @@ const MobileMenuList = styled.ul`
 
 function MobileMenu({ menu, toggleMenu }) {
   return (
-    <FullScreenOverlay>
+    <FullScreenOverlay >
       <i onClick={toggleMenu}
         className="fa fa-times"
         style={{
@@ -74,9 +93,9 @@ function MobileMenu({ menu, toggleMenu }) {
           right: '15px',
           top: '15px'
         }} />
-      <MobileMenuList>
+      <MobileMenuList >
         { menu.map((item) => (
-          <MenuItem key={item.href} menuItem={item} />
+          <MenuItem key={item.href} menuItem={item} onClick={toggleMenu}/>
         )) }
       </MobileMenuList>
     </FullScreenOverlay>
