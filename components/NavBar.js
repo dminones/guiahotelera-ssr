@@ -57,6 +57,7 @@ const MobileMenuList = styled.ul`
   vertical-align: middle;
   font-size: 22px;
   line-height: 60px;
+  list-style:none;
 `
 
 function MobileMenu({ menu, toggleMenu }) {
