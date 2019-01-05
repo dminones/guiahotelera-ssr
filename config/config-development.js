@@ -1,7 +1,7 @@
 import sites from './sites';
 
 const config = {
-	apiUrl : "http://api.guiahoteleraargentina.com/",
+	apiUrl : "http://localhost:9000",
 }
 
 export { config }
