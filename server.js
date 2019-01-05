@@ -6,10 +6,6 @@ const port = process.env.NODE_PORT || 3000
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-function createVirtualHost(domainName, dirPath) {
-    return vhost(domainName, express.static( dirPath ));
-}
-
 app.prepare()
 .then(() => {
   const server = express()
@@ -33,7 +29,6 @@ app.prepare()
   })
 
   server.get('*', (req, res) => {
-    console.log(req.headers.host)
     return handle(req, res)
   })
 
