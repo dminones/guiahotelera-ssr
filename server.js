@@ -33,7 +33,6 @@ app.prepare()
   })
 
   server.get('*', (req, res) => {
-    console.log(req.headers.host)
     return handle(req, res)
   })
 
