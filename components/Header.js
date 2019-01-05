@@ -119,7 +119,8 @@ export default class Header extends Component {
                             backgroundPosition: 'center',
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'cover', 
-                            maxHeight: '100%'
+                            maxHeight: '100%',
+                            zIndex: '999',
     }
 
     headerStyle.backgroundAttachment = (defaults.headerFixed) ? 'fixed' : 'scroll'
@@ -136,7 +137,7 @@ export default class Header extends Component {
         margin: '125px auto 0 0',
         padding: '0px',
         fontSize: '42px',
-        display: 'inline-block'
+        display: 'inline-block',
       }
 
     return(

@@ -3,9 +3,11 @@ import Autosuggest from 'react-autosuggest';
 import Link from 'next/link';
 import config,{ getClientConfigSite } from '../config'
 
+const normalize = (value) => value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
 // Teach Autosuggest how to calculate suggestions for any given input value. 
 const getSuggestions = function(value, callback) {
-	const inputValue = value.trim().toLowerCase();
+	const inputValue = normalize(value)
 	const inputLength = inputValue.length;
 	const site = getClientConfigSite();
 
@@ -13,7 +15,7 @@ const getSuggestions = function(value, callback) {
 	  .then(function(response) {
 	    response.json().then(function(json) {
 	      	let filtered = json.filter(item =>
-				item.name.toLowerCase().slice(0, inputLength) === inputValue
+				normalize(item.name).slice(0, inputLength) === inputValue
 		 	)
 		 	callback(filtered)
 	    })
