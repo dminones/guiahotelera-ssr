@@ -21,12 +21,12 @@ export async function getItems(filter = {}) {
 
 
 export async function getItem(slug) {
-	const items = await getItems()
-
-    var found = items.filter(function(item) { 
-			    	return slugify(item.name) === slug;
-			  	});
-    return (found.length > 0) ? found[0] : null;
+	const url = `${config.apiUrl}/item/${slug}`
+	const item =  await fetch(url).then(res => {
+		if(res.status > 400) throw new Error(res.json())
+		return res.json()
+	}).catch(e => {throw e});
+	return item;
 }
 
 export async function getDestinations(filter = {}) {
