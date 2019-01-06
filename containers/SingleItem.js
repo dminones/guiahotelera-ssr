@@ -27,8 +27,21 @@ function BookingDetail({booking}) {
 
   return(
     <li key="booking">
-      <a href={ booking }  className="facebook-profile" target="_blank">
+      <a href={ booking }   target="_blank">
         <i className="icon-booking"></i> Reservar en Booking.com
+      </a>
+    </li>
+  )
+}
+
+function BookOnlineDetail({url}) {
+  if(url == null){ return null }
+
+  return(
+    <li key="url">
+      <i className="sl sl-icon-notebook"></i>
+      <a href={ url } target="_blank">
+         Reservar Online
       </a>
     </li>
   )
@@ -166,6 +179,7 @@ class Content extends Component {
             <TwitterDetail twitter={item.twitter} />
             <InstagramDetail instagram={item.instagram} />
             <BookingDetail booking={item.booking} />
+            <BookOnlineDetail url={item.bookOnline} />
           </ul>
         </div>
       </div>
