@@ -3,6 +3,7 @@ import Layout from '../components/MyLayout.js'
 import { Post } from '../containers'
 import { getPost } from '../data/'
 import {configSite} from '../config'
+import Head from 'next/head'
 export default class extends Component {
 
 	static async getInitialProps({ req, query }) {
@@ -24,6 +25,9 @@ export default class extends Component {
         const { post, site } = this.props;
         return (
             <Layout site={site}>
+			    <Head>
+					<title>{ post.title} - {site.name}</title>
+				</Head>
                <Post site={site} post={post} />
             </Layout>
         )

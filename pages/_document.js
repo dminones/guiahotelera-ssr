@@ -32,7 +32,6 @@ export default class MyDocument extends Document {
 
           <link rel="icon" href={this.props.site.favicon} type="image/x-icon" />
         
-					<title>{this.props.site.name}</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <body className="custom_class">
