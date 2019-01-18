@@ -9,6 +9,8 @@ export default class Book extends Component {
     super(props)
     this.state = {
       to: props.item.email,
+      itemName: props.item.name,
+      url: window.location.href,
       sending: false,
       errors : []
     }
