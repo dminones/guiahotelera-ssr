@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import slugify from '../utils/Slugify'
 import {Header, SingleItemMap, Book } from '../components'
 
 function PhoneDetail({phone}) {

@@ -28,6 +28,12 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
   })
 
+  server.get('/p/:slug', (req, res) => {
+    console.log(req.params)
+    const actualPage = '/post'
+    app.render(req, res, actualPage, req.params)
+  })
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })

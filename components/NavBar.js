@@ -109,6 +109,10 @@ const Icon = styled.i`
   padding: 12px 15px!important;
 `
 
+const Header = styled.header`
+  position:relative!important;
+  z-index:9999!important;
+`
 export default class NavBar extends Component {
   constructor() {
     super();
@@ -128,7 +132,7 @@ export default class NavBar extends Component {
   render() {
     const menu = getMainMenu()
     return (
-      <header id="header-container" >
+      <Header id="header-container" >
         <div id="header" >
           <div className="container">
             <div id="logo">
@@ -160,7 +164,7 @@ export default class NavBar extends Component {
             <div className="clearfix"></div>
           </div>
         </div>
-      </header>
+      </Header>
     )
   }
 }

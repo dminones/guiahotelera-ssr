@@ -29,6 +29,15 @@ export async function getItem(slug) {
 	return item;
 }
 
+export async function getPost(slug) {
+	const url = `${config.apiUrl}/post/${slug}`
+	const post =  await fetch(url).then(res => {
+		if(res.status > 400) throw new Error(res.json())
+		return res.json()
+	}).catch(e => {throw e});
+	return post;
+}
+
 export async function getDestinations(filter = {}) {
 	const esc = encodeURIComponent;
 	const query = Object.keys(filter)
