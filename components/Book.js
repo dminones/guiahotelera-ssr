@@ -5,12 +5,11 @@ import config from '../config'
 export default class Book extends Component {
 
   constructor(props){
-    console.log(props)
     super(props)
     this.state = {
       to: props.item.email,
       itemName: props.item.name,
-      url: window.location.href,
+      url: `/hotel/${props.item.slug}`,
       sending: false,
       errors : []
     }
