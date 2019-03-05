@@ -32,9 +32,10 @@ export default class extends Component {
 			</Layout>
 		);
 		return(
-			<Layout site={this.props.site}>
+			<Layout site={this.props.site} page={this.props.item} >
 				<Head>
-					<title>{ this.props.item.name } - {this.props.site.name}</title>
+					{ !this.props.item.headTitle && <title>{this.props.item.name} - {this.props.site.name}</title>}
+					{ !this.props.item.headDescription && this.props.item.overview && <meta name="description" content={this.props.item.overview} />}
 				</Head>
 				<SingleItem item={this.props.item} site={this.props.site} />
 		  	</Layout>

@@ -48,14 +48,14 @@ export default class extends Component {
 		console.log("PROS :> ",this.props);
 		if(this.props.children && this.props.children.length > 0){
 			return (
-				<Layout site={this.props.site}>
+				<Layout site={this.props.site}  page={this.props.destination} >
 					<ParentDestination {...this.props} />
 				</Layout>
 			);
 		}
 		
 		return (
-			<Layout site={this.props.site}>
+			<Layout site={this.props.site}  page={this.props.destination} >
 				<FinalDestination {...this.props} />
 			</Layout>
 		);
