@@ -1,177 +1,269 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import {Header, SingleItemMap, Book } from '../components'
+import { Header, SingleItemMap, Book } from "../components";
 
-function PhoneDetail({phone}) {
-  if(phone == null){ return null }
-
-  return( <li key="phone"><i className="sl sl-icon-phone"></i>
-            <a href={ 'tel:'+phone } target="_blank"> { phone }</a>
-          </li>)
-}
-
-function WebDetail({web}) {
-  if(web == null){ return null }
-  let webUrl = web.replace(/(^\w+:|^)\/\//, '');
-  return(
-    <li key="web">
-      <i className="sl sl-icon-globe"></i> 
-      <a href={ 'http://'+webUrl } target="_blank">{ webUrl }</a>
-    </li>
-  )
-}
-
-function BookingDetail({booking}) {
-  if(booking == null){ return null }
-
-  return(
-    <li key="booking">
-      <a href={ booking }   target="_blank">
-        <i className="icon-booking"></i> Reservar en Booking.com
-      </a>
-    </li>
-  )
-}
-
-function BookOnlineDetail({url}) {
-  if(url == null){ return null }
-
-  return(
-    <li key="url">
-      <i className="sl sl-icon-notebook"></i>
-      <a href={ url } target="_blank">
-         Reservar Online
-      </a>
-    </li>
-  )
-}
-
-
-function EmailDetail({email, onClick}) {
-  if(email == null){ return null }
-
-  return(
-    <li key="email">
-      <i className="fa fa-envelope-o"></i> 
-      <a  style={{cursor:'pointer' }}  onClick={ onClick } >{ email }</a>
-    </li>
-  )
-}
-
-
-function AddressDetail({address}) {
-  if(!address){ return null }
-
-  return(
-    <li key="address">
-       <i className="sl sl-icon-location" ></i>
-        { address} 
-    </li>
-  )
-}
-
-
-function AccommodationType({accommodationType}) {
-  if(!accommodationType) {
-    return null
+function PhoneDetail({ phone }) {
+  if (phone == null) {
+    return null;
   }
 
   return (
-    <span className="listing-tag">{ accommodationType.name }</span>
-  )
+    <li key="phone">
+      <i className="sl sl-icon-phone" />
+      <a href={"tel:" + phone} target="_blank">
+        {" "}
+        {phone}
+      </a>
+    </li>
+  );
 }
 
-function FacebookDetail({facebook}) {
-  if(facebook == null){ return null }
+function WhatsAppDetail({ whatsapp }) {
+  if (whatsapp == null) {
+    return null;
+  }
 
-  return( <li>
-            <a href={facebook} target="_blank" className="facebook-profile">
-              <i className="fa fa-facebook-square"></i>
-              Facebook
-            </a>
-          </li>)
+  return (
+    <li key="whatsapp">
+      <i className="fa fa-whatsapp" />
+      <a
+        href={"https://api.whatsapp.com/send?phone=" + whatsapp}
+        target="_blank"
+      >
+        {" "}
+        {whatsapp}
+      </a>
+    </li>
+  );
 }
 
-
-function TwitterDetail({twitter}) {
-  if(twitter == null){ return null }
-
-  return( <li>
-            <a href={twitter} target="_blank" className="twitter-profile"> 
-              <i className="fa fa-twitter-square"></i>
-              Twitter
-            </a>
-          </li>)
+function WebDetail({ web }) {
+  if (web == null) {
+    return null;
+  }
+  let webUrl = web.replace(/(^\w+:|^)\/\//, "");
+  return (
+    <li key="web">
+      <i className="sl sl-icon-globe" />
+      <a href={"http://" + webUrl} target="_blank">
+        {webUrl}
+      </a>
+    </li>
+  );
 }
 
+function BookingDetail({ booking }) {
+  if (booking == null) {
+    return null;
+  }
 
-function InstagramDetail({instagram}) {
-  if(instagram == null){ return null }
-
-  return( <li>
-            <a href={instagram} target="_blank" style={{color:'rgb(136, 136, 136)'}}> 
-              <i className="fa fa-instagram"></i>
-              Instagram
-            </a>
-          </li>)
+  return (
+    <li key="booking">
+      <a href={booking} target="_blank">
+        <i className="icon-booking" /> Reservar en Booking.com
+      </a>
+    </li>
+  );
 }
 
+function BookOnlineDetail({ url }) {
+  if (url == null) {
+    return null;
+  }
+
+  return (
+    <li key="url">
+      <i className="sl sl-icon-notebook" />
+      <a href={url} target="_blank">
+        Reservar Online
+      </a>
+    </li>
+  );
+}
+
+function EmailDetail({ email, onClick }) {
+  if (email == null) {
+    return null;
+  }
+
+  return (
+    <li key="email">
+      <i className="fa fa-envelope-o" />
+      <a style={{ cursor: "pointer" }} onClick={onClick}>
+        {email}
+      </a>
+    </li>
+  );
+}
+
+function AddressDetail({ address }) {
+  if (!address) {
+    return null;
+  }
+
+  return (
+    <li key="address">
+      <i className="sl sl-icon-location" />
+      {address}
+    </li>
+  );
+}
+
+function AccommodationType({ accommodationType }) {
+  if (!accommodationType) {
+    return null;
+  }
+
+  return <span className="listing-tag">{accommodationType.name}</span>;
+}
+
+function FacebookDetail({ facebook }) {
+  if (facebook == null) {
+    return null;
+  }
+
+  return (
+    <li>
+      <a href={facebook} target="_blank" className="facebook-profile">
+        <i className="fa fa-facebook-square" />
+        Facebook
+      </a>
+    </li>
+  );
+}
+
+function TwitterDetail({ twitter }) {
+  if (twitter == null) {
+    return null;
+  }
+
+  return (
+    <li>
+      <a href={twitter} target="_blank" className="twitter-profile">
+        <i className="fa fa-twitter-square" />
+        Twitter
+      </a>
+    </li>
+  );
+}
+
+function InstagramDetail({ instagram }) {
+  if (instagram == null) {
+    return null;
+  }
+
+  return (
+    <li>
+      <a
+        href={instagram}
+        target="_blank"
+        style={{ color: "rgb(136, 136, 136)" }}
+      >
+        <i className="fa fa-instagram" />
+        Instagram
+      </a>
+    </li>
+  );
+}
 
 class Content extends Component {
-
   componentDidMount() {
-    this.scrollToComponent = require('react-scroll-to-component');
+    this.scrollToComponent = require("react-scroll-to-component");
   }
 
   render() {
-    const {item, content } = this.props;
-    console.log("content", content)
-    const linkStyle = {cursor:'pointer'}
+    const { item, content } = this.props;
+    console.log("content", content);
+    const linkStyle = { cursor: "pointer" };
 
-    if(item == null ){
-      return null
+    if (item == null) {
+      return null;
     }
 
-    return(
+    return (
       <div id="titlebar" className="listing-titlebar">
         <div className="listing-titlebar-title">
-          <h2>{ item.name } <AccommodationType accommodationType={item._accommodationType} /></h2>
+          <h2>
+            {item.name}{" "}
+            <AccommodationType accommodationType={item._accommodationType} />
+          </h2>
         </div>
         <div id="listing-nav" className="listing-nav-container margin-top-30">
           <ul className="listing-nav">
-            { 
-              item.overview &&
-              (<li><a style={linkStyle} onClick={() => this.scrollToComponent(content.Description) } >Descripción</a></li>) 
-            }
-            { 
-              item.location &&
-              (<li><a style={linkStyle} onClick={() => this.scrollToComponent(content.Location) }>Ubicación</a></li>) 
-            }
-            <li><a style={linkStyle} onClick={() => this.scrollToComponent(content.Contact) }>Contacto</a></li>
+            {item.overview && (
+              <li>
+                <a
+                  style={linkStyle}
+                  onClick={() => this.scrollToComponent(content.Description)}
+                >
+                  Descripción
+                </a>
+              </li>
+            )}
+            {item.location && (
+              <li>
+                <a
+                  style={linkStyle}
+                  onClick={() => this.scrollToComponent(content.Location)}
+                >
+                  Ubicación
+                </a>
+              </li>
+            )}
+            <li>
+              <a
+                style={linkStyle}
+                onClick={() => this.scrollToComponent(content.Contact)}
+              >
+                Contacto
+              </a>
+            </li>
           </ul>
         </div>
-        { 
-          item.overview && 
-          (<div ref={(section) => { content.Description = section; }}>{item.overview}</div>)
-        }
-        { 
-          item.location &&
-          (<div ref={(section) => { content.Location = section; }} id="listing-location" className="listing-section">
-            <h3 className="listing-desc-headline margin-top-60 margin-bottom-30">Ubicación</h3>
+        {item.overview && (
+          <div
+            ref={section => {
+              content.Description = section;
+            }}
+          >
+            {item.overview}
+          </div>
+        )}
+        {item.location && (
+          <div
+            ref={section => {
+              content.Location = section;
+            }}
+            id="listing-location"
+            className="listing-section"
+          >
+            <h3 className="listing-desc-headline margin-top-60 margin-bottom-30">
+              Ubicación
+            </h3>
             <div id="singleListingMap-container">
-              <SingleItemMap item={ item } />
+              <SingleItemMap item={item} />
             </div>
-          </div>)
-        }
+          </div>
+        )}
 
-        <div ref={(section) => { content.Contact = section; }} className="listing-section">
-          <h3 className="listing-desc-headline margin-top-60 margin-bottom-30">Contacto</h3>
+        <div
+          ref={section => {
+            content.Contact = section;
+          }}
+          className="listing-section"
+        >
+          <h3 className="listing-desc-headline margin-top-60 margin-bottom-30">
+            Contacto
+          </h3>
           <ul className="listing-details-sidebar col-md-8">
             <AddressDetail address={item.address} />
             <PhoneDetail phone={item.phone} />
+            <WhatsAppDetail whatsapp={item.whatsapp} />
             <WebDetail web={item.web} />
-            <EmailDetail  email={item.email} 
-                          onClick={() => this.scrollToComponent(content.Book) } />   
+            <EmailDetail
+              email={item.email}
+              onClick={() => this.scrollToComponent(content.Book)}
+            />
           </ul>
           <ul className="listing-details-sidebar social-profiles col-md-4">
             <FacebookDetail facebook={item.facebook} />
@@ -182,9 +274,8 @@ class Content extends Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
-  
 }
 
 /*
@@ -216,33 +307,45 @@ class Booking extends Component {
 */
 
 export default class SingleItem extends Component {
-
-  Sidebar({item, site}) {
-    return(
+  Sidebar({ item, site }) {
+    return (
       <div>
         <Book item={item} site={site.slug} />
       </div>
-    )
+    );
   }
 
   render() {
-    var content = {}
+    var content = {};
 
-    return(
+    return (
       <div>
-        { (this.props.item !== null) && ( this.props.item.thumbnail ) ? (<Header src={ this.props.item.thumbnail } headerSize="Big" gallery={this.props.item.gallery} />) : null }
+        {this.props.item !== null && this.props.item.thumbnail ? (
+          <Header
+            src={this.props.item.thumbnail}
+            headerSize="Big"
+            gallery={this.props.item.gallery}
+          />
+        ) : null}
         {/*<TitleBar title={ 'Hotel '+this.props.item.name } subtitle={this.props.item.name} />*/}
         <div className="container">
           <div className="row sticky-wrapper">
             <div className="col-lg-8 col-md-8 padding-right-30">
-                <Content item={this.props.item} content={content} />              
+              <Content item={this.props.item} content={content} />
             </div>
-            <div ref={(section) => { content.Book = section; }} className="col-lg-4 col-md-4 margin-top-75 sticky">
-                { (this.props.item !== null) ? (<this.Sidebar  item={this.props.item} site={this.props.site} />) : null }
+            <div
+              ref={section => {
+                content.Book = section;
+              }}
+              className="col-lg-4 col-md-4 margin-top-75 sticky"
+            >
+              {this.props.item !== null ? (
+                <this.Sidebar item={this.props.item} site={this.props.site} />
+              ) : null}
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
