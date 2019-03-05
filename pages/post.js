@@ -24,7 +24,7 @@ export default class extends Component {
     render() {
         const { post, site } = this.props;
         return (
-            <Layout site={site}>
+            <Layout site={site} page={post}>
 			    <Head>
 					<title>{ post.title} - {site.name}</title>
 				</Head>

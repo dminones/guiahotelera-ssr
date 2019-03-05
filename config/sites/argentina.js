@@ -10,7 +10,10 @@ const argentina = {
 	favicon: "/static/images/argentina.ico",
 	colorStyle: "/static/css/colors/blue.css",
 	color:"blue",
-	showRegions: true
+	showRegions: true,
+	headTitle: "Guia Hotelera Argentina - Hoteles en Mar del Plata - Hoteles en Buenos Aires - Trenque Lauquen",
+	headKeywords: "Hoteles en Mar del Plata - Hoteles en Buenos Aires - Trenque Lauquen",
+	headDescription: "Hoteles en Mar del Plata - Hoteles en Buenos Aires - Trenque Lauquen"
 }
 
 export default argentina;
