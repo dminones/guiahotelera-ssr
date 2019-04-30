@@ -10,6 +10,7 @@ const bolivia = {
 	favicon: "/static/images/bolivia.ico",
 	colorStyle: "/static/css/colors/green.css",
 	color:"green",
+	showRegions: true,
 
 }
 
